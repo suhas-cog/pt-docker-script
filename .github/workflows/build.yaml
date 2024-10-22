@@ -7,7 +7,7 @@ on:
 jobs:
   jmeter_job:
 # The type of runner that the job will run on  
-    runs-on: ecs-pt-runner
+    runs-on: ubuntu-latest
 # Git Checks-out our repository      
     name: JMeter Test Execution
     steps:      
