@@ -59,18 +59,12 @@ jobs:
          ls -la
          done
          
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-           name: jtl-files
-           path: |
-             /home/runner/work/pt-docker-script/pt-docker-script/apache-jmeter-5.6.3
-
       - name: run jmx scripts
         run: |
           cd /home/runner/work/pt-docker-script/pt-docker-script/apache-jmeter-5.6.3/bin
           chmod 777 FilterResults.sh
           ./FilterResults.sh --output-file ./SampleAPIFilteredjtl.jtl --input-file $GITHUB_WORKSPACE/${i%.jmx}.jtl --start-offset 10
+
       - name: move jtl files to test_report
         run: |
          mv *.jtl $GITHUB_WORKSPACE/test_report
@@ -85,3 +79,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+           name: jtl-files
+           path: |
+             /home/runner/work/pt-docker-script/pt-docker-script/apache-jmeter-5.6.3
