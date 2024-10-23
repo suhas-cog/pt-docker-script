@@ -54,8 +54,15 @@ jobs:
             cd $GITHUB_WORKSPACE/apache-jmeter-5.6.3/bin
             mkdir $GITHUB_WORKSPACE/test_report/${i%.jmx}
             ./jmeter -n -t $GITHUB_WORKSPACE/$i  -l $GITHUB_WORKSPACE/${i%.jmx}.jtl 
-            ./JMeterPluginsCMD.sh --generate-csv $GITHUB_WORKSPACE/test_report/${i%.jmx}.csv --input-jtl $GITHUB_WORKSPACE/${i%.jmx}.jtl --plugin-type AggregateReport
+            ./JMeterPluginsCMD.sh --generate-csv $GITHUB_WORKSPACE/test_report/${i%.jmx}.csv --input-jtl $GITHUB_WORKSPACE/${i%.jmx}.jtl --plugin-type AggregateReport   
          done
+         
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+           name: jtl-files
+           path: |
+             $GITHUB_WORKSPACE/test_report
 
       - name: run jmx scripts
         run: |
