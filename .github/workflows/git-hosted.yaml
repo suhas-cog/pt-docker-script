@@ -59,7 +59,7 @@ jobs:
 
       - name: run jmx scripts
         run: |
-          ./FilterResults.sh --output-file ./SampleAPIFilteredjtl.jtl --input-file $GITHUB_WORKSPACE/${i%.jmx}.jtl --start-offset 10
+          ./filterresults.sh --output-file ./SampleAPIFilteredjtl.jtl --input-file $GITHUB_WORKSPACE/${i%.jmx}.jtl --start-offset 10
       - name: move jtl files to test_report
         run: |
          mv *.jtl $GITHUB_WORKSPACE/test_report
