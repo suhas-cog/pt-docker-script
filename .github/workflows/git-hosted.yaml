@@ -60,7 +60,7 @@ jobs:
         run: |
          mv *.jtl $GITHUB_WORKSPACE/test_report
       - name: Upload JMeter Test Results
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v2
         with:
          name: test_results
          path: test_report
