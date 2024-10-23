@@ -64,10 +64,11 @@ jobs:
         with:
            name: jtl-files
            path: |
-             $GITHUB_WORKSPACE/test_report
+             /home/runner/work/pt-docker-script/pt-docker-script/apache-jmeter-5.6.3/bin
 
       - name: run jmx scripts
         run: |
+          cd /home/runner/work/pt-docker-script/pt-docker-script/apache-jmeter-5.6.3/bin
           chmod 777 FilterResults.sh
           ./FilterResults.sh --output-file ./SampleAPIFilteredjtl.jtl --input-file $GITHUB_WORKSPACE/${i%.jmx}.jtl --start-offset 10
       - name: move jtl files to test_report
