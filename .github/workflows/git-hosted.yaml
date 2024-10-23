@@ -54,8 +54,12 @@ jobs:
             cd $GITHUB_WORKSPACE/apache-jmeter-5.6.3/bin
             mkdir $GITHUB_WORKSPACE/test_report/${i%.jmx}
             ./jmeter -n -t $GITHUB_WORKSPACE/$i  -l $GITHUB_WORKSPACE/${i%.jmx}.jtl 
-            ./JMeterPluginsCMD.sh --generate-csv $GITHUB_WORKSPACE/test_report/${i%.jmx}.csv --input-jtl $GITHUB_WORKSPACE/${i%.jmx}.jtl --plugin-type SynthesisReport
+            ./JMeterPluginsCMD.sh --generate-csv $GITHUB_WORKSPACE/test_report/${i%.jmx}.csv --input-jtl $GITHUB_WORKSPACE/${i%.jmx}.jtl --plugin-type AggregateReport
          done
+
+      - name: run jmx scripts
+        run: |
+          ./FilterResults.sh --output-file ./SampleAPIFilteredjtl.jtl --input-file $GITHUB_WORKSPACE/${i%.jmx}.jtl --start-offset 10
       - name: move jtl files to test_report
         run: |
          mv *.jtl $GITHUB_WORKSPACE/test_report
