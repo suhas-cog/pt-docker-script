@@ -64,7 +64,7 @@ jobs:
         with:
            name: jtl-files
            path: |
-             /home/runner/work/pt-docker-script/pt-docker-script/apache-jmeter-5.6.3/bin
+             /home/runner/work/pt-docker-script/pt-docker-script/apache-jmeter-5.6.3
 
       - name: run jmx scripts
         run: |
