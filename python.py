@@ -22,12 +22,12 @@ replace_files = {
 
 # Get the ZIP file path from command-line arguments
 if len(sys.argv) != 2:
-    raise ValueError("Usage: python python.py <path_to_zip_file>")
+    raise ValueError("Usage: python python.py /home/runner/work/pt-docker-script/pt-docker-script/test_report")
 
-zip_file_path = sys.argv[1]
+zip_file_path = /home/runner/work/pt-docker-script/pt-docker-script/test_report
 
-if not os.path.isfile(zip_file_path):
-    raise FileNotFoundError(f"No ZIP file found at the specified path: {zip_file_path}")
+#if not os.path.isfile(zip_file_path):
+#    raise FileNotFoundError(f"No ZIP file found at the specified path: {zip_file_path}")
 
 # Define the extraction directory
 extraction_dir = os.path.dirname(os.path.abspath(__file__))
