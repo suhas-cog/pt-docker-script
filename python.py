@@ -22,7 +22,7 @@ replace_files = {
 
 # Get the ZIP file path from command-line arguments
 if len(sys.argv) != 2:
-    raise ValueError("Usage: python File_Conversion.py <path_to_zip_file>")
+    raise ValueError("Usage: python python.py <path_to_zip_file>")
 
 zip_file_path = sys.argv[1]
 
